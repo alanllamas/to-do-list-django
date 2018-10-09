@@ -1,8 +1,8 @@
 from rest_framework import serializers
- 
+
 from users.models import User
  
- 
+
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     tasks = serializers.HyperlinkedRelatedField(
         many=True,
@@ -10,7 +10,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         read_only=True
     )
     password = serializers.CharField(write_only=True)
- 
+
     def create(self, validated_data):
         user = User(
             username=validated_data.get('username', None)
@@ -18,7 +18,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         user.set_password(validated_data.get('password', None))
         user.save()
         return user
- 
+
     def update(self, instance, validated_data):
         for field in validated_data:
             if field == 'password':
@@ -27,7 +27,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
                 instance.__setattr__(field, validated_data.get(field))
         instance.save()
         return instance
- 
+
     class Meta:
         model = User
         fields = ('url', 'id', 'username',
