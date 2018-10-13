@@ -1,2 +1,28 @@
-to-do
+
+
+### OSX ###
+.DS_Store
+.AppleDouble
+.LSOverride
+
+
+# Thumbnails
+._*
+
+
+
+### Python ###
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+
+### Django ###
+*.log
+*.pot
 *.pyc
+__pycache__/
+local_settings.py
+
+.env
+db.sqlite3
