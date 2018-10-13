@@ -7,7 +7,7 @@ from .models import User
 
 
 class TaskSerializer(serializers.HyperlinkedModelSerializer):
-    user = serializers.ReadOnlyField(source='User.username')
+    user = serializers.ReadOnlyField(source='user.username')
 
     class Meta:
         model = Task
