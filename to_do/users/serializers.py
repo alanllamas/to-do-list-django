@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
 from users.models import User
- 
+
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     tasks = serializers.HyperlinkedRelatedField(
@@ -13,7 +13,11 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
 
     def create(self, validated_data):
         user = User(
-            username=validated_data.get('username', None)
+            username=validated_data.get('username', None),
+            first_name=validated_data.get('first_name', None),
+            last_name=validated_data.get('last_name', None),
+            email=validated_data.get('email', None),
+
         )
         user.set_password(validated_data.get('password', None))
         user.save()
