@@ -7,7 +7,10 @@ clone the repository
 ```
 git clone https://github.com/alanllamas/to-do-list-django.git
 ``` 
-
+go to project root
+````
+cd to-do-list-django
+````
 create and run virtual env (mac)
 
 ````
@@ -20,7 +23,7 @@ source env/bin/activate
  ````
  pip3 install -r requirements.txt 
  ````
- go to project root
+ go to project folder
  
  ````
  cd to_do
